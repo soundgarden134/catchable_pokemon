@@ -31,7 +31,7 @@
   }
   
 /* Pokémon-themed checkbox container styles */
-.checkbox-container, .pokemon-games-container {
+.checkbox-container, .pokemon-games-container{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -44,6 +44,20 @@
     margin-bottom:20px;
     /* Add Pokémon fonts or images here, if available */
   }
+
+.general-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: 2px solid #ff6e64; /* Pokémon-themed border color */
+  background-color: #e9e4e4; /* Light background color */
+  padding: 15px;
+  border-radius: 8px;
+  color: #000; /* Set the text color to black or a contrasting color */
+  margin-top:20px;
+  margin-bottom:20px;
+  /* Add Pokémon fonts or images here, if available */
+}
   
   /* Pokémon-themed checkbox styles */
   .checkbox-item, .pokemon-games-item {
@@ -128,7 +142,7 @@
   }
   
   .pokeball-button:hover {
-    background-color: black; /* Change color on hover */
+    background-color: black !important; /* Change color on hover */
   }
   
   .pokeball-icon {
