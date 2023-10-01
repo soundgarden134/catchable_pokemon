@@ -27,7 +27,7 @@ export default function CatchOptionsInfo() {
                     <ul>
                         {Object.entries(obtainableOptions).map(([key, value]) => (
                             <li key={key}>
-                                <strong>{key}:</strong> {value}
+                                <strong>{key}:</strong> {value as string}
                             </li>
                         ))}
                     </ul>
@@ -37,7 +37,7 @@ export default function CatchOptionsInfo() {
                     <ul>
                         {Object.entries(unobtainableOptions).map(([key, value]) => (
                             <li key={key}>
-                                <strong>{key}:</strong> {value}
+                                <strong>{key}:</strong> {value as string}
                             </li>
                         ))}
                     </ul>

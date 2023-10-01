@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Container, Form, Row, Col, Navbar } from 'react-bootstrap';
+import { Button, Container, Form, Row, Col } from 'react-bootstrap';
 import CatchOptionsInfo from './components/CatchOptionsInfo';
 import PokemonTable from './components/PokemonTable';
 import Papa from 'papaparse';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css'
 import pokeball from '/pokeball.png'
 import { OBTAINABILITY_OPTIONS, POKEMON_GAMES, PokemonData } from './constants';
+import Navigation from './components/Navigation';
 
 
 export default function App() {
@@ -101,8 +103,6 @@ export default function App() {
     // Now, catchablePokemon and unCatchablePokemon contain the respective categories
     setCatchablePokemons(newCatchablePokemons);
     setUncatchablePokemons(newUncatchablePokemons);
-    console.log("catch", newCatchablePokemons);
-    console.log("uncatch", newUncatchablePokemons);
   }
 
   const handleToggleCatchOptionsInfo = () => {
@@ -115,86 +115,87 @@ export default function App() {
   }, [selectedGames, selectedCatchOptions])
 
   return (
-    <Container className='main-container'>
-      <Container className="centered-title">
-        <h1 className="pokemon-title">
-          <img src={pokeball} alt="" style={{ height: '2em', verticalAlign: 'middle' }} />
-          <span style={{ fontSize: '1.5em', marginLeft: '10px', marginRight: '10px' }}>-Poké-Catcher-</span>
-          <img src={pokeball} alt="" style={{ height: '2em', verticalAlign: 'middle' }} />
-        </h1>
-      </Container>
-      <Container>
-        <Row>
-          <Container className="centered-title">
-            <h2 className="pokemon-title">Select Your Pokémon Games</h2>
-          </Container>
-        </Row>
-        <Form>
-          <Container className="pokemon-games-container">
-            {POKEMON_GAMES.map((game) => (
-              <Container key={game} className="pokemon-games-item">
-                <Form.Check
-                  type="checkbox"
-                  id={game}
-                  label={
-                    <Container>
-                      <img src={pokeball} alt="" style={{ height: '1em', marginRight: '5px', verticalAlign: 'middle' }} />
-                      {game}
-                    </Container>
-                  }
-                  checked={selectedGames.includes(game)}
-                  onChange={() => handleGameSelection(game)}
-                />
-              </Container>
-            ))}
-          </Container>
-        </Form>
-      </Container>
-      <Container>
-        <Form>
+    <>
+      <Navigation />
+      <Container className='main-container'>
+        <Container className="centered-title">
+          <h1 className="pokemon-title">
+            <img src={pokeball} alt="" style={{ height: '2em', verticalAlign: 'middle' }} />
+            <span style={{ fontSize: '1.5em', marginLeft: '10px', marginRight: '10px' }}>-Poké-Catcher-</span>
+            <img src={pokeball} alt="" style={{ height: '2em', verticalAlign: 'middle' }} />
+          </h1>
+        </Container>
+        <hr className="divider" />
+        <Container>
           <Row>
             <Container className="centered-title">
-              <h2 className="pokemon-title">Select Capture Options</h2>
+              <h2 className="pokemon-title">Select Your Pokémon Games</h2>
             </Container>
           </Row>
-          <Container className="checkbox-container">
-            {Object.entries(OBTAINABILITY_OPTIONS).map(([key]) => (
-              <Container key={key} className="checkbox-item">
-                <Form.Check
-                  type="checkbox"
-                  label={`${key}`}
-                  value={key}
-                  checked={selectedCatchOptions.includes(key)}
-                  onChange={handleCheckboxChange}
-                />
+          <Form>
+            <Container className="pokemon-games-container">
+              {POKEMON_GAMES.map((game) => (
+                <Container key={game} className="pokemon-games-item">
+                  <Form.Check
+                    type="checkbox"
+                    id={game}
+                    label={
+                      <Container>
+                        <img src={pokeball} alt="" style={{ height: '1em', marginRight: '5px', verticalAlign: 'middle' }} />
+                        {game}
+                      </Container>
+                    }
+                    checked={selectedGames.includes(game)}
+                    onChange={() => handleGameSelection(game)}
+                  />
+                </Container>
+              ))}
+            </Container>
+          </Form>
+        </Container>
+        <hr className="divider" />
+        <Container>
+          <Form>
+            <Row>
+              <Container className="centered-title">
+                <h2 className="pokemon-title">Select Capture Options</h2>
               </Container>
-            ))}
-            <Button
-              variant="primary"
-              onClick={handleToggleCatchOptionsInfo}
-              className="pokeball-button"
-            >
-              <div className="pokeball-icon">
-                <img
-                  src={pokeball}
-                  alt=""
-                  style={{ height: '1em', marginRight: '5px', verticalAlign: 'middle' }}
-                />
-              </div>
-              ?
-            </Button>
-            {showCatchOptionsInfo && <CatchOptionsInfo />}
-          </Container>
-        </Form>
-      </Container>
-      <Row>
-        <Col lg={4}>
-          <PokemonTable selectedGames={selectedGames} pokemons={catchablePokemons} title={"Catchable Pokémon"} />
-        </Col>
-        <Col lg={4}>
+            </Row>
+            <Container className="checkbox-container">
+              {Object.entries(OBTAINABILITY_OPTIONS).map(([key]) => (
+                <Container key={key} className="checkbox-item">
+                  <Form.Check
+                    type="checkbox"
+                    label={`${key}`}
+                    value={key}
+                    checked={selectedCatchOptions.includes(key)}
+                    onChange={handleCheckboxChange}
+                  />
+                </Container>
+              ))}
+              <Button
+                onClick={handleToggleCatchOptionsInfo}
+                className="pokeball-button"
+              >
+                <div className="pokeball-icon" style={{ display: 'flex', alignItems: 'center' }}>
+                  <img
+                    src={pokeball}
+                    alt=""
+                    style={{ height: '1em', marginRight: '5px' }}
+                  />
+                ?
+                </div>
+              </Button>
+              {showCatchOptionsInfo && <CatchOptionsInfo />}
+            </Container>
+          </Form>
+        </Container>
+        <hr className="divider" />
+        <Row>
+            <PokemonTable selectedGames={selectedGames} pokemons={catchablePokemons} title={"Catchable Pokémon"} />
 
-        </Col>
-      </Row>
-    </Container>
+        </Row>
+      </Container>
+    </>
   );
 }
