@@ -32,7 +32,7 @@ export const OBTAINABILITY_OPTIONS = {
 };
 
 export const POKEMON_GAMES = [
-  "Red", "Green", "Blue", "Yellow", "Gold", "Silver", "Crystal", "Ruby", "Sapphire", "FireRed", "LeafGreen", "Emerald", "Colosseum", "Gale Of Darkness", "Diamond", "Pearl", "Platinum", "HeartGold", "SoulSilver", "Black", "White", "Black 2", "White 2", "X", "Y", "OmegaRuby", "AlphaSapphire", "Sun", "Moon", "UltraSun", "UltraMoon", "LetsGoPikachu", "LetsGoEevee", "Sword", "Shield", "BrilliantDiamond", "ShiningPearl", "LegendsArceus", "Scarlet", "Violet"
+  "Red", "Green", "Blue", "Yellow", "Gold", "Silver", "Crystal", "Ruby", "Sapphire", "Fire Red", "Leaf Green", "Emerald", "Colosseum", "Gale Of Darkness", "Diamond", "Pearl", "Platinum", "Heart Gold", "Soul Silver", "Black", "White", "Black 2", "White 2", "X", "Y", "Omega Ruby", "Alpha Sapphire", "Sun", "Moon", "Ultra Sun", "Ultra Moon", "Let's Go Pikachu", "Let's Go Eevee", "Sword", "Shield", "Brilliant Diamond", "Shining Pearl", "Legends Arceus", "Scarlet", "Violet"
 ];
 
 export interface PokemonData {

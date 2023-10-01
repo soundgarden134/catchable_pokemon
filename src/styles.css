@@ -1,3 +1,29 @@
+.main-container {
+    margin-left:10%;
+    margin-right:10%
+}
+
+.centered-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Adjust margin-top as needed */
+  }
+
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+  }
+
+  .obtainability-options-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
 .pokemon-title {
     font-size: 24px; /* Adjust the font size as needed */
     font-weight: bold; /* Make the title bold */
@@ -24,14 +50,14 @@
   .checkbox-item, .pokemon-games-item {
     flex: 0 0 calc(11.1% - 10px);
     /* Additional styling for individual checkboxes if needed */
-  
-    /* Optional: Add Pokémon colors or images to checkboxes */
     background-color: #f5f5f5; /* Checkbox background color */
     border: 1px solid #ff6e64; /* Checkbox border color */
     padding: 5px; /* Adjust padding as needed */
     text-align: center; /* Center-align checkbox content */
     font-weight: bold; /* Make text bold for checkboxes */
-    /* Add Pokémon images for checkboxes if desired */
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Display an ellipsis (...) for overflowing text */
   }
   
   /* Optional: Hover effect for Pokémon-themed checkboxes */
