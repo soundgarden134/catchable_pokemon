@@ -1,0 +1,32 @@
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 2px solid #ff6e64;
+    background-color: #eee4e4;
+    padding: 10px;
+    border-radius: 8px;
+    color: #000; /* Set the text color to black or a color that contrasts with the background */
+  }
+  
+  .pokemon-games-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 2px solid #ff6e64;
+    background-color: #eee4e4;
+    padding: 10px;
+    border-radius: 8px;
+    color: #000; /* Set the text color to black or a color that contrasts with the background */
+  }
+  .checkbox-item {
+    flex: 0 0 calc(11.1% - 10px);
+    /* Additional styling for individual checkboxes if needed */
+  }
+
+  .pokemon-games-item {
+    flex: 0 0 calc(20% - 10px);
+    /* Additional styling for individual checkboxes if needed */
+  }
+  
+  
