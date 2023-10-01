@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Container, Table, Alert, Form, Row, Col } from 'react-bootstrap';
 import CatchOptionsInfo from './components/CatchOptionsInfo';
+import PokemonTable from './components/PokemonTable';
 import Papa from 'papaparse';
 import './styles.css'
 import { OBTAINABILITY_OPTIONS, POKEMON_GAMES, PokemonData } from './constants';
@@ -10,7 +11,6 @@ export default function App() {
   const [csvData, setCsvData] = useState<PokemonData[] | null>(null);
   const [catchablePokemons, setCatchablePokemons] = useState<PokemonData[]>([]);
   const [uncatchablePokemons, setUncatchablePokemons] = useState<PokemonData[]>([]);
-  const [error, setError] = useState<string | null>(null);
   const [selectedCatchOptions, setSelectedCatchOptions] = useState<string[]>([]);
   const [selectedGames, setSelectedGames] = useState<string[]>([]);
 
@@ -105,7 +105,7 @@ export default function App() {
 
   return (
     <Container>
-      <h1>Pokemon Catcher</h1>
+      <h1 className="pokemon-title">Pokemon Catcher</h1>
       <CatchOptionsInfo />
       <Form>
         <div className="checkbox-container">
@@ -123,7 +123,7 @@ export default function App() {
         </div>
       </Form>
       <Container>
-        <h2>Select Your Pokémon Games</h2>
+        <h2 className="pokemon-title">Select Your Pokémon Games</h2>
         <Form>
           <div className="pokemon-games-container">
             {POKEMON_GAMES.map((game) => (
@@ -142,60 +142,10 @@ export default function App() {
       </Container>
       <Row>
         <Col lg={4}>
-          <h2>Catchable Pokémon</h2>
-          <Table striped bordered responsive>
-            <thead>
-              <tr>
-                <th>Generation</th>
-                <th>Number</th>
-                <th>Name</th>
-                {selectedGames.map((game) => (
-                  <th key={game}>{game}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {catchablePokemons.map((pokemon) => (
-                <tr key={pokemon.Name}>
-                  <td>{pokemon.Generation}</td>
-                  <td>{pokemon.Number}</td>
-                  <td>{pokemon.Name}</td>
-                  {selectedGames.map((game) => (
-                    <td key={`${pokemon.Name}-${game}`}>{pokemon[game]}</td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </Table>
+              <PokemonTable selectedGames={selectedGames} pokemons={catchablePokemons} title={"Catchable Pokémon"}/>
         </Col>
         <Col lg={4}>
-          <h2>Uncatchable Pokémon</h2>
-          <Table>
-            <Table striped bordered responsive>
-              <thead>
-                <tr>
-                  <th>Generation</th>
-                  <th>Number</th>
-                  <th>Name</th>
-                  {selectedGames.map((game) => (
-                    <th key={game}>{game}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {uncatchablePokemons.map((pokemon) => (
-                  <tr key={pokemon.Name}>
-                    <td>{pokemon.Generation}</td>
-                    <td>{pokemon.Number}</td>
-                    <td>{pokemon.Name}</td>
-                    {selectedGames.map((game) => (
-                      <td key={`${pokemon.Name}-${game}`}>{pokemon[game]}</td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          </Table>
+          
         </Col>
       </Row>
     </Container>

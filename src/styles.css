@@ -1,32 +1,91 @@
-.checkbox-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    border: 2px solid #ff6e64;
-    background-color: #eee4e4;
-    padding: 10px;
-    border-radius: 8px;
-    color: #000; /* Set the text color to black or a color that contrasts with the background */
+.pokemon-title {
+    font-size: 24px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the title bold */
+    text-transform: uppercase; /* Convert text to uppercase for a Pokémon feel */
+    letter-spacing: 2px; /* Add some letter spacing for style */
+    color: #ff6e64; /* Pokémon-themed text color */
+    /* Add any additional styling that fits your Pokémon theme */
   }
   
-  .pokemon-games-container {
+/* Pokémon-themed checkbox container styles */
+.checkbox-container, .pokemon-games-container {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    border: 2px solid #ff6e64;
-    background-color: #eee4e4;
+    border: 2px solid #ff6e64; /* Pokémon-themed border color */
+    background-color: #eee4e4; /* Light background color */
     padding: 10px;
     border-radius: 8px;
-    color: #000; /* Set the text color to black or a color that contrasts with the background */
+    color: #000; /* Set the text color to black or a contrasting color */
+    /* Add Pokémon fonts or images here, if available */
   }
-  .checkbox-item {
+  
+  /* Pokémon-themed checkbox styles */
+  .checkbox-item, .pokemon-games-item {
     flex: 0 0 calc(11.1% - 10px);
     /* Additional styling for individual checkboxes if needed */
-  }
-
-  .pokemon-games-item {
-    flex: 0 0 calc(20% - 10px);
-    /* Additional styling for individual checkboxes if needed */
+  
+    /* Optional: Add Pokémon colors or images to checkboxes */
+    background-color: #f5f5f5; /* Checkbox background color */
+    border: 1px solid #ff6e64; /* Checkbox border color */
+    padding: 5px; /* Adjust padding as needed */
+    text-align: center; /* Center-align checkbox content */
+    font-weight: bold; /* Make text bold for checkboxes */
+    /* Add Pokémon images for checkboxes if desired */
   }
   
+  /* Optional: Hover effect for Pokémon-themed checkboxes */
+  .checkbox-item:hover, .pokemon-games-item:hover {
+    background-color: #ff6e64; /* Hover background color */
+    color: #fff; /* Text color on hover */
+    /* Additional hover effects or transitions if desired */
+  }
+  
+
+  .table {
+    border: 2px solid #ff6e64;
+    background-color: #fff; /* White background */
+    color: #333; /* Dark text color */
+  
+    /* Add a Pokémon font, if available */
+    font-family: "Pokemon", Arial, sans-serif;
+  
+    /* Optional: Add a Pokémon background image or texture */
+    /* background-image: url('pokemon-background.jpg'); */
+    /* background-size: cover; */
+  }
+
+  .table thead th {
+    background-color: #343a40; /* Dark header background color */
+    color: #fff; /* Header text color */
+    font-weight: bold; /* Header text font weight */
+    text-align: center; /* Center header text */
+  
+    /* Optional: Add a Pokémon border or gradient to header cells */
+    /* border: 1px solid #ff6e64; */
+    /* background-image: linear-gradient(to bottom, #ff6e64, #ff4d4d); */
+  }
+  
+  /* Odd rows styling with a Pokémon color */
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f5f5f5; /* Light gray background for odd rows */
+  }
+  
+  /* Hover effect */
+  .table-hover tbody tr:hover {
+    background-color: #f5f5f5; /* Light gray background on hover */
+  }
+  
+  /* Padding and alignment for table cells */
+  .table td,
+  .table th {
+    padding: 8px; /* Adjust the padding value as needed */
+    text-align: center; /* Center-align text in cells */
+  }
+  
+  /* Optional: Add a Pokémon border to table cells */
+  /* .table-bordered td,
+  .table-bordered th {
+    border: 1px solid #dee2e6; 
+  } */
   
