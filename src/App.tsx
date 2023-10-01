@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Container, Table, Alert, Form, Row, Col, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { Button, Container, Form, Row, Col, Navbar } from 'react-bootstrap';
 import CatchOptionsInfo from './components/CatchOptionsInfo';
 import PokemonTable from './components/PokemonTable';
 import Papa from 'papaparse';
@@ -15,9 +15,7 @@ export default function App() {
   const [selectedCatchOptions, setSelectedCatchOptions] = useState<string[]>([]);
   const [selectedGames, setSelectedGames] = useState<string[]>([]);
   const [error, setError] = useState<string>('');
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const handleClose = () => setShowModal(false);
-  const handleShow = () => setShowModal(true);
+  const [showCatchOptionsInfo, setShowCatchOptionsInfo] = useState<boolean>(false);
 
 
 
@@ -107,6 +105,9 @@ export default function App() {
     console.log("uncatch", newUncatchablePokemons);
   }
 
+  const handleToggleCatchOptionsInfo = () => {
+    setShowCatchOptionsInfo(!showCatchOptionsInfo);
+  };
 
   useEffect(() => {
     filterPokemons();
@@ -168,6 +169,21 @@ export default function App() {
                 />
               </Container>
             ))}
+            <Button
+              variant="primary"
+              onClick={handleToggleCatchOptionsInfo}
+              className="pokeball-button"
+            >
+              <div className="pokeball-icon">
+                <img
+                  src={pokeball}
+                  alt=""
+                  style={{ height: '1em', marginRight: '5px', verticalAlign: 'middle' }}
+                />
+              </div>
+              ?
+            </Button>
+            {showCatchOptionsInfo && <CatchOptionsInfo />}
           </Container>
         </Form>
       </Container>

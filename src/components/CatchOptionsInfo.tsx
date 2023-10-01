@@ -4,7 +4,6 @@ import '../styles.css'
 
 
 
-
 export default function CatchOptionsInfo() {
 
     const separatorIndex = 'EV';
@@ -17,8 +16,10 @@ export default function CatchOptionsInfo() {
             unobtainableOptions[key] = value;
         }
     }
+    
 
     return (
+
         <Container className="obtainability-options-container">
             <Container className="pokemon-games-container">
                 <Container className="obtainability-subgroup">

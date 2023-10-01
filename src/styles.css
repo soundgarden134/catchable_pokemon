@@ -110,8 +110,32 @@
   }
   
   /* Optional: Add a Pokémon border to table cells */
-  /* .table-bordered td,
+  .table-bordered td,
   .table-bordered th {
     border: 1px solid #dee2e6; 
-  } */
+  }
   
+  .pokeball-button {
+    background-color: red; /* Pokeball's red color */
+    color: white; /* Text color */
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px; /* Adjust padding as needed */
+    cursor: pointer;
+    border-radius: 10px; /* Smooth border radius */
+    transition: background-color 0.3s ease;
+  }
+  
+  .pokeball-button:hover {
+    background-color: black; /* Change color on hover */
+  }
+  
+  .pokeball-icon {
+    display: inline-block;
+    width: 1em; /* Adjust the size of the icon */
+    height: 1em; /* Adjust the size of the icon */
+    vertical-align: middle;
+    margin-right: 5px;
+  }
